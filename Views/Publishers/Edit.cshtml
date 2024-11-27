@@ -1,4 +1,4 @@
-﻿@model Ciurca_Radu_Lab2.Models.Publisher
+﻿@model LibraryModel.Models.Publisher
 
 @{
     ViewData["Title"] = "Edit";
@@ -30,7 +30,7 @@
  @{
  int cnt = 0;
  
-List<Ciurca_Radu_Lab2.Models.LibraryViewModels.PublishedBookData> books = 
+List<Ciurca_Radu_Lab2.Models.PublishedBookData> books = 
 ViewBag.Books;
  foreach (var book in books)
 {

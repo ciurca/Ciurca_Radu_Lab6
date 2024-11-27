@@ -1,4 +1,4 @@
-﻿namespace Ciurca_Radu_Lab2.Models
+﻿namespace LibraryModel.Models
 {
     public class BookViewModel
     {

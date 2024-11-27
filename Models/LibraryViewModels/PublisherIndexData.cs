@@ -1,4 +1,5 @@
-﻿namespace Ciurca_Radu_Lab2.Models.LibraryViewModels
+﻿using LibraryModel.Models;
+namespace Ciurca_Radu_Lab2.Models
 {
     public class PublisherIndexData
     {

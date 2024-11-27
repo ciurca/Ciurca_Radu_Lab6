@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Ciurca_Radu_Lab2.Models;
+using LibraryModel.Models;
 
-namespace Ciurca_Radu_Lab2
+namespace LibraryModel.Data
 {
     public class Ciurca_Radu_Lab2Context : DbContext
     {
@@ -22,6 +22,7 @@ namespace Ciurca_Radu_Lab2
 
         public DbSet<Publisher> Publisher { get; set; } = default!;
         public DbSet<PublishedBook> PublishedBooks { get; set; } = default!;
+        public DbSet<City> City { get; set; } = default!;
 
     }
 }

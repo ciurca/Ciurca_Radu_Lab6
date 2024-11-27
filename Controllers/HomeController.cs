@@ -1,6 +1,7 @@
 using System.Diagnostics;
+using LibraryModel.Models;
+using LibraryModel.Data;
 using Ciurca_Radu_Lab2.Models;
-using Ciurca_Radu_Lab2.Models.LibraryViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

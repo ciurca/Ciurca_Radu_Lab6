@@ -1,7 +1,7 @@
-﻿using Ciurca_Radu_Lab2.Models;
+﻿using LibraryModel.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Ciurca_Radu_Lab2.Data
+namespace LibraryModel.Data
 {
     public class DbInitializer
     {
@@ -15,7 +15,7 @@ namespace Ciurca_Radu_Lab2.Data
                 {
                     return;  // BD a fost creata anterior
                 }
-                var authors = new Ciurca_Radu_Lab2.Models.Authors[] {
+                var authors = new LibraryModel.Models.Authors[] {
           new Authors { FirstName = "Mihail", LastName = "Sadoveanu" },
           new Authors { FirstName = "George", LastName = "Calinescu" },
           new Authors { FirstName = "Mircea", LastName = "Eliade" },

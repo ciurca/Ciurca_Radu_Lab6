@@ -6,8 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Ciurca_Radu_Lab2;
+using LibraryModel.Models;
+using LibraryModel.Data;
 using Ciurca_Radu_Lab2.Models;
-using Ciurca_Radu_Lab2.Models.LibraryViewModels;
 
 namespace Ciurca_Radu_Lab2.Controllers
 {

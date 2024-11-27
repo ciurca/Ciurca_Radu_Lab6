@@ -5,13 +5,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Ciurca_Radu_Lab2.Models;
+using LibraryModel.Models;
+using LibraryModel.Data;
+using LibraryModel.Models;
 
 namespace Ciurca_Radu_Lab2.Controllers
 {
     public class AuthorsController : Controller
     {
-        private readonly Ciurca_Radu_Lab2Context _context;
+        private readonly LibraryModel.Data.Ciurca_Radu_Lab2Context _context;
 
         public AuthorsController(Ciurca_Radu_Lab2Context context)
         {
