@@ -27,21 +27,18 @@ namespace GrpcCustomersService.Services
             pl.Item.AddRange(query.ToArray());
             return Task.FromResult(pl);
         }
-        public override Task<Customer> Get(CustomerId id, ServerCallContext
-       context)
+        public override Task<Customer> Get(CustomerId requestData, ServerCallContext context)
         {
+            var data = db.Customer.Find(requestData.Id);
 
-            Customer customer = new Customer();
-            var query = from cust in db.Customer where cust.CustomerID == id.Id 
-                        select new Customer()
-                        {
-                            CustomerId = cust.CustomerID,
-                            Name = cust.Name,
-                            Adress = cust.Adress,
-                            Birthdate = cust.BirthDate.ToString()
-                        };
-            customer = query.First();
-            return Task.FromResult(customer);
+            Customer emp = new Customer()
+            {
+                CustomerId = data.CustomerID,
+                Name = data.Name,
+                Adress = data.Adress
+
+            };
+            return Task.FromResult(emp);
         }
         public override Task<Empty> Insert(Customer requestData, ServerCallContext
        context)
@@ -55,23 +52,24 @@ namespace GrpcCustomersService.Services
             db.SaveChanges();
             return Task.FromResult(new Empty());
         }
-        public override Task<Customer> Update(Customer requestData, ServerCallContext
-       context)
+        public override Task<Customer> Update(Customer requestData, ServerCallContext context)
         {
-            LibraryModel.Models.Customer customer = db.Customer.Find(requestData.CustomerId);
-            customer.CustomerID = requestData.CustomerId;
-            customer.Name = requestData.Name;
-            customer.Adress = requestData.Adress;
-            customer.BirthDate = DateTime.Parse(requestData.Birthdate);
-            db.Customer.Update(customer);
+            db.Customer.Update(new LibraryModel.Models.Customer()
+            {
+                CustomerID = requestData.CustomerId,
+                Name = requestData.Name,
+                Adress = requestData.Adress,
+                BirthDate = DateTime.Parse(requestData.Birthdate)
+            });
             db.SaveChanges();
-
             return Task.FromResult(requestData);
         }
-        public override Task<Empty> Delete(CustomerId request, ServerCallContext context)
+        public override Task<Empty> Delete(CustomerId requestData, ServerCallContext
+context)
         {
-            LibraryModel.Models.Customer customer = db.Customer.Find(request.Id);
-            db.Remove(customer);
+            var data = db.Customer.Find(requestData.Id);
+            db.Customer.Remove(data);
+
             db.SaveChanges();
             return Task.FromResult(new Empty());
         }
